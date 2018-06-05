@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 
-from .models import CmdExecuter
 import json
 
 # import the logging library

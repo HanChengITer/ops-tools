@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 	# my apps
 	'index',
 	'exec_cmd',
+	'apis',
 ]
 
 MIDDLEWARE = [
