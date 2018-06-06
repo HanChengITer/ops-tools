@@ -1,7 +1,7 @@
 from django.db import models
 import os, traceback
-# import logging
-# logger = logging.getLogger('django')
+import logging
+logger = logging.getLogger('django')
 
 from exec_cmd.models import ExecCmd, ExecRecord
 
@@ -34,6 +34,7 @@ class CmdExecuter():
 				exec_cmd_tmp = ExecCmd.objects.all().get(hosts=self.__host, cmd=self.__cmd)
 			
 			result = os.popen(exec_str).read()
+			# logger.info(result)
 		except:
 			result = traceback.format_exc()
 			result_dict["status"] = "1"
