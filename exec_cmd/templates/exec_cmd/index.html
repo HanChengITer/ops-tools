@@ -1,4 +1,5 @@
-﻿<p>select the cmd you want execute<p>
+﻿<p><a href="{% url 'index:index' %}">return index</a></p>
+<p>select the cmd you want execute<p>
 <form action="{% url 'exec_cmd:execute_selected_cmd' %}" method="post">
 {% for cmd in cmds %}
 	  <li>
