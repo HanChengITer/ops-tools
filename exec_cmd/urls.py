@@ -21,7 +21,6 @@ app_name='exec_cmd'
 urlpatterns = [
     path('', views.no_suffix, name='no_suffix'),
     path('index', views.index, name='index'),
-    path('execute', views.execute, name='execute'),
     path('execute_selected_cmd', views.execute_selected_cmd, name='execute_selected_cmd'),
     path('create_cmd', views.create_cmd, name='create_cmd'),
 ]

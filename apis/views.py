@@ -18,6 +18,21 @@ def execute(request):
 		des_cmd
 	返回类型
 		json
+		>>失败
+		{
+				'status':str, 
+				'result':None,
+				'detail':str,
+			}
+		>>成功
+		{
+				'status':'success', 
+				'result':{
+					"executed_cmd_id":str, 
+					"result":str,
+				},
+				'detail':None,
+			}
 	执行举例
 		apis/execute?des_host=dg-all:de-all&des_cmd=ls -hlt
 	"""
@@ -47,13 +62,15 @@ def execute(request):
 		if result_dict["status"] == "1":
 			resp = {
 				'status':'error', 
-				'result':'',
+				'result':None,
 				'detail':result_dict["result"],
 			}
 		else:
 			resp = {
 				'status':'success', 
-				'result':{"des_host":des_host, "des_cmd":des_cmd, "result":result_dict["result"]},
-				'detail':''
+				'result':{
+					"executed_cmd_id":result_dict["executed_cmd_id"], "result":result_dict["result"],
+				},
+				'detail':None,
 			}
 		return HttpResponse(json.dumps(resp, indent=4), content_type="application/json")

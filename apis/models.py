@@ -42,5 +42,6 @@ class CmdExecuter():
 		else:
 			result_dict["status"] = "0"
 			ExecRecord(cmd=exec_cmd_tmp, result="0")
+		result_dict["executed_cmd_id"] = exec_cmd_tmp.id
 		result_dict["result"] = result
 		return result_dict
